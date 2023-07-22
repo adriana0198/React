@@ -7,6 +7,7 @@ export function TwitterFollow ({ formatUserName, children ,userName, name, initi
     // utilizar una prop para inicializar el estado = initialIsFollowing - solo una vez
 
     const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+
     //const isFollowing = state[0] // valor del estado
     //const setIsFollowing = state[1] // actualizar el estado
 
@@ -15,6 +16,7 @@ export function TwitterFollow ({ formatUserName, children ,userName, name, initi
 
     const handleClick = () => {
         setIsFollowing(!isFollowing)
+        
     }
 
     return (
@@ -33,7 +35,8 @@ export function TwitterFollow ({ formatUserName, children ,userName, name, initi
 
         <aside>
             <button className={buttonClassName} onClick={handleClick}> 
-                {text} {/* hijo del elemento - children */}
+                <span className="tw-followCard-text">{text}</span> {/* hijo del elemento - children */}
+                <span className="tw-followCard-stopFollow">Dejar de seguir</span>
             </button>
         </aside>
     </article>
