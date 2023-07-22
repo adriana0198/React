@@ -1,35 +1,29 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { TwitterFollow } from './TwitterFollow.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App () {
+    // const formatUserName = (userName) => `@${userName}` funcion
+    // const formatUserName = <span>@{userName}</span> // elemento
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [name, setName] = useState('adrianapaez_1')
+
+    return (
+        <section className='App'>
+            <TwitterFollow initialIsFollowing={true} userName={name}>
+                Adriana Lucia Paez
+            </TwitterFollow>
+
+            <TwitterFollow userName="midudev">
+                Miguel Angel
+            </TwitterFollow>
+
+            <button onClick={() => setName('Lucia01')}>
+                cambiar nombre
+            </button>
+
+            {/* <TwitterFollow isFollowing userName="elonmusk" name="Elonk Musk"/> */}
+            {/* <TwitterFollow formatUserName={formatUserName} isFollowing userName="elonmusk" name="Elonk Musk"/> */}
+        </section>
+    )
 }
-
-export default App
